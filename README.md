@@ -1,4 +1,4 @@
-<img width="2000" height="2000" alt="Festnest" src="https://github.com/user-attachments/assets/b50cc694-db14-4dd3-acf2-f87118b39826" /># 🌟 FestNest – Event & Hotel Management Platform
+# 🌟 FestNest – Event & Hotel Management Platform
 
 # Logo 
 <img width="790" height="696" alt="image" src="https://github.com/user-attachments/assets/c7531d72-28f8-414e-ada8-bfe0632cf483" />
