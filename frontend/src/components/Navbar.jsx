@@ -1,39 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/navbar.css";
 import { useTheme } from "../context/ThemeContext";
 
 function Navbar() {
     const { theme, toggleTheme } = useTheme();
+    const location = useLocation();
+
+    const isActive = (path) => location.pathname === path;
 
     return (
         <nav className="navbar">
-
-            <h2>FestNest</h2>
+            <div className="navbar-brand">
+                <span className="brand-fest">Fest</span>
+                <span className="brand-nest">Nest</span>
+            </div>
 
             <div className="nav-links">
-
-                <Link to="/">Home</Link>
-
-                <Link to="/admin-dashboard">Admin Dashboard</Link>
-
-                <Link to="/create-event">Create Event</Link>
-
-                <Link to="/admin-events">Admin Events</Link>
-
-                <Link to="/create-hotel">Create Hotel</Link>
-
-                <Link to="/admin-hotels">Admin Hotels</Link>
-
-                <Link to="/login">Login</Link>
-
-                <Link to="/register">Register</Link>
-
+                <Link to="/" className={isActive("/") ? "active" : ""}>Home</Link>
+                <Link to="/admin-dashboard" className={isActive("/admin-dashboard") ? "active" : ""}>Dashboard</Link>
+                <Link to="/create-event" className={isActive("/create-event") ? "active" : ""}>Create Event</Link>
+                <Link to="/admin-events" className={isActive("/admin-events") ? "active" : ""}>Events</Link>
+                <Link to="/create-hotel" className={isActive("/create-hotel") ? "active" : ""}>Create Hotel</Link>
+                <Link to="/admin-hotels" className={isActive("/admin-hotels") ? "active" : ""}>Hotels</Link>
+                <Link to="/login" className={isActive("/login") ? "active" : ""}>Login</Link>
+                <Link to="/register" className={isActive("/register") ? "active" : ""}>Register</Link>
             </div>
 
             <button onClick={toggleTheme} className="theme-toggle">
                 {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
             </button>
-
         </nav>
     );
 }
