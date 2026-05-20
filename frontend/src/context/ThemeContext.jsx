@@ -3,11 +3,14 @@ import { createContext, useContext, useState, useEffect } from "react";
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [theme, setTheme] = useState(
+    localStorage.getItem("festnest-theme") || "light"
+  );
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    // Must be on documentElement (<html>) for CSS :root variables to work
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("festnest-theme", theme);
   }, [theme]);
 
   const toggleTheme = () =>
